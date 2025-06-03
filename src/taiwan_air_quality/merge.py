@@ -5,12 +5,17 @@ import pandas as pd
 from tqdm import tqdm
 
 
-def merge_data(data_dir: str = "data", stations_file: str = "mapping_data/monitoring_stations.csv"):
+def merge_data(
+    data_dir: str = "data",
+    output_dir: str = "output",
+    stations_file: str = "mapping_data/monitoring_stations.csv"
+):
     """
     Merge air quality data files by year.
 
     Args:
         data_dir: Directory containing yearly data folders
+        output_dir: Directory to write merged data to
         stations_file: Path to monitoring stations CSV file
     """
     # Load the monitoring stations data
@@ -60,7 +65,7 @@ def merge_data(data_dir: str = "data", stations_file: str = "mapping_data/monito
                 combined_data = pd.concat([combined_data, data], ignore_index=True)
 
             # Save the combined data to a CSV file named after the year
-            combined_csv_path = f"{data_dir}/{year}.csv"
+            combined_csv_path = f"{output_dir}/{year}.csv"
             combined_data.to_csv(combined_csv_path, index=False, encoding="utf-8-sig")
 
     # Return the list of created files
@@ -78,6 +83,11 @@ def main():
         help="Directory containing yearly data folders (default: data)",
     )
     parser.add_argument(
+        "--output-dir",
+        default="output",
+        help="Directory to output merged data (default: output)",
+    )
+    parser.add_argument(
         "--stations-file",
         default="mapping_data/monitoring_stations.csv",
         help="Path to monitoring stations CSV file (default: monitoring_stations.csv)",
@@ -86,7 +96,7 @@ def main():
     args = parser.parse_args()
 
     print(f"Merging data from {args.data_dir} using stations file {args.stations_file}")
-    created_files = merge_data(args.data_dir, args.stations_file)
+    created_files = merge_data(args.data_dir, args.output_dir, args.stations_file)
     print(f"Created {len(created_files)} merged files:")
     for file in created_files:
         print(f"  - {file}")

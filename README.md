@@ -40,11 +40,11 @@ The package provides two main CLI commands:
 Merge air quality data files by year:
 
 ```bash
-# Merge all data in the 'data' directory
+# Merge all data in the 'data' directory and output to 'output' directory
 uv run merge-data
 
 # Specify custom data directory and stations file
-uv run merge-data --data-dir /path/to/data --stations-file custom_stations.csv
+uv run merge-data --data-dir /path/to/data --output-dir /path/to/output --stations-file custom_stations.csv
 ```
 
 #### Transform Data
