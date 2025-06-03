@@ -1,5 +1,6 @@
 # Data files
 *.csv
+!mapping_data/monitoring_stations.csv
 
 # IDE
 .idea/

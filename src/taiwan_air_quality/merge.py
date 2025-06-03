@@ -5,7 +5,7 @@ import pandas as pd
 from tqdm import tqdm
 
 
-def merge_data(data_dir: str = "data", stations_file: str = "monitoring_stations.csv"):
+def merge_data(data_dir: str = "data", stations_file: str = "mapping_data/monitoring_stations.csv"):
     """
     Merge air quality data files by year.
 
@@ -79,7 +79,7 @@ def main():
     )
     parser.add_argument(
         "--stations-file",
-        default="monitoring_stations.csv",
+        default="mapping_data/monitoring_stations.csv",
         help="Path to monitoring stations CSV file (default: monitoring_stations.csv)",
     )
 
