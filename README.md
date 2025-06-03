@@ -51,11 +51,11 @@ uv run merge-data --data-dir /path/to/data --output-dir /path/to/output --statio
 Transform data from wide format to long format:
 
 ```bash
-# Transform all CSV files in the 'data' directory
+# Transform all CSV files in the 'output' directory
 uv run transform-data
 
 # Transform a specific file
-uv run transform-data --file data/2023.csv
+uv run transform-data --file output/2023.csv
 
 # Specify custom data directory
 uv run transform-data --data-dir /path/to/data

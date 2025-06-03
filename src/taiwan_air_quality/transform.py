@@ -79,8 +79,8 @@ def main():
     )
     parser.add_argument(
         "--data-dir",
-        default="data",
-        help="Directory containing CSV files to transform (default: data)",
+        default="output",
+        help="Directory containing CSV files to transform (default: output)",
     )
     parser.add_argument(
         "--file",
