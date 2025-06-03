@@ -37,13 +37,29 @@ uv sync
 The package provides two main CLI commands:
 
 #### Merge Data
+
+First download the air quality data from the [歷年監測資料](https://airtw.moenv.gov.tw/CHT/Query/His_Data.aspx) and place it in the `data/` directory. The data should be organized by year, with each year's data in a separate subdirectory.
+
+```angular2html
+data/
+├── 2023/
+│   ├── 三義_2023.csv
+│   ├── 三重_2023.csv
+│   └── ... (other monitoring stations)
+├── 2024/
+│   ├── 三義_2024.csv
+│   ├── 三重_2024.csv
+│   └── ... (other monitoring stations)
+└── ...
+```
+
 Merge air quality data files by year:
 
 ```bash
 # Merge all data in the 'data' directory and output to 'output' directory
 uv run merge-data
 
-# Specify custom data directory and stations file
+# Specify custom data directory, output directory, and stations file
 uv run merge-data --data-dir /path/to/data --output-dir /path/to/output --stations-file custom_stations.csv
 ```
 
